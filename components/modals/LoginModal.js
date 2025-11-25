@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Modal, Snackbar, Alert } from "@mui/material";
 import { BiX } from "react-icons/bi";
 
-import { closeLoginModal, openSignupModal, openPasswordModal } from "@/redux/modalSlice";
+import { closeLoginModal, openSignupModal } from "@/redux/modalSlice";
 
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInAnonymously } from "firebase/auth";
 
 import { auth } from "@/firebase";
 
@@ -30,7 +30,7 @@ export default function LoginModal({ onLoginSuccess }) {
 
   async function handleGuestSignIn() {
     try {
-      const userCredential = await signInWithEmailAndPassword(
+      const userCredential = await signInAnonymously(
         auth,
         "guest12345@gmail.com",
         "123456"
@@ -50,12 +50,6 @@ export default function LoginModal({ onLoginSuccess }) {
     }
     setError(null);
   };
-
-  async function handlePassword() {
-    dispatch(closeLoginModal());
-    dispatch(openPasswordModal());
-    setError(false);
-  }
   return (
     <>
       <Modal open={isOpen} className="modal">
@@ -91,13 +85,8 @@ export default function LoginModal({ onLoginSuccess }) {
             <button className="btn modal__login--btn" onClick={handleSignIn}>
               <span>Login</span>
             </button>
-            <button 
-            onClick={handlePassword}
-            className="btn modal__btn--password"
-            >
-              Forgot your password?
-            </button>
           </div>
+
           <button
             className="btn modal__btn"
             onClick={() => {

@@ -12,7 +12,7 @@ import SignupModal from "@/components/modals/SignupModal";
 import { onAuthStateChanged } from "firebase/auth";
 import { clearUser } from "@/redux/authSlice";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_FIREBASE_STRIPE_PUBLIC_KEY);
 
 const Settings = () => {
   const [user, setUser] = useState(null);

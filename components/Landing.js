@@ -33,38 +33,6 @@ export default function Landing() {
     });
   }, [dispatch, router]);
 
-  if (typeof document !== "undefined") {
-    const allHeadings = Array.from(
-      document.querySelectorAll(".statistics__heading")
-    );
-
-    let i = 0;
-
-    const loop = () => {
-      // Add class to the current heading
-      allHeadings[i].classList.add("statistics__heading--active");
-
-      // Calculate the index of the seventh heading in a circular manner
-      const seventhIndex = (i + 6) % allHeadings.length;
-      // Add class to the seventh heading
-      allHeadings[seventhIndex].classList.add("statistics__heading--active");
-
-      setTimeout(() => {
-        // Remove class from the current heading
-        allHeadings[i].classList.remove("statistics__heading--active");
-        // Remove class from the seventh heading
-        allHeadings[seventhIndex].classList.remove(
-          "statistics__heading--active"
-        );
-
-        i = (i + 1) % allHeadings.length; // Increment i in a circular manner
-        loop(); // Call loop recursively for the next iteration
-      }, 1500); // Use a fixed delay for the loop
-    };
-
-    loop(); // Start the loop
-  }
-
   return (
     <>
       <nav className="nav">

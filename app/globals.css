@@ -89,7 +89,6 @@ button:disabled {
 .modal__block {
   max-width: 400px;
   width: 100%;
-  height: 475px;
   position: relative;
   background-color: white;
   border-radius: 8px;
@@ -200,6 +199,7 @@ input {
 
 .modal__btn--password {
   display: flex;
+  margin-bottom: 24px;
 }
 
 .modal__btn:hover:not(:disabled) {
@@ -794,48 +794,48 @@ input {
 }
 
 /* BOOK PAGE */
-.inner__wrapper {
+.id__wrapper {
   display: flex;
   gap: 16px;
 }
 
-.inner__book {
+.id__book {
   width: 100%;
 }
 
-.inner__book--title {
+.id__book--title {
   font-size: 32px;
 }
 
-.inner__book--title,
-.inner__book--author {
+.id__book--title,
+.id__book--author {
   color: #032b41;
   margin-bottom: 16px;
   font-weight: 600;
 }
 
-.inner__book--subtitle {
+.id__book--subtitle {
   font-size: 20px;
   color: #032b41;
   margin-bottom: 16px;
   font-weight: 300;
 }
 
-.inner__book--wrapper {
+.id__book--wrapper {
   border-top: 1px solid #e1e7ea;
   border-bottom: 1px solid #e1e7ea;
   padding: 16px 0;
   margin-bottom: 24px;
 }
 
-.inner__book--description-wrapper {
+.id__book--description-wrapper {
   display: flex;
   flex-wrap: wrap;
   max-width: 400px;
   row-gap: 12px;
 }
 
-.inner__book--description {
+.id__book--description {
   display: flex;
   align-items: center;
   width: 50%;
@@ -844,7 +844,7 @@ input {
   font-size: 14px;
 }
 
-.inner__book--icon {
+.id__book--icon {
   display: flex;
   height: 24px;
   width: 24px;
@@ -852,13 +852,13 @@ input {
   font-size: 24px;
 }
 
-.inner__book--read-btn-wrapper {
+.id__book--read-btn-wrapper {
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
 }
 
-.inner__book--read-btn {
+.id__book--read-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -873,12 +873,12 @@ input {
   transition: opacity 0.2s;
 }
 
-.inner__book--read-icon {
+.id__book--read-icon {
   display: flex;
   font-size: 24px;
 }
 
-.inner__book--bookmark {
+.id__book--bookmark {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -890,27 +890,27 @@ input {
   transition: color 0.2s;
 }
 
-.inner__book--bookmark-icon {
+.id__book--bookmark-icon {
   display: flex;
   width: 20px;
   height: 20px;
 }
 
-.inner__book--secondary-title {
+.id__book--secondary-title {
   font-size: 18px;
   color: #032b41;
   margin-bottom: 16px;
   font-weight: 600;
 }
 
-.inner__book--tags-wrapper {
+.id__book--tags-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 16px;
 }
 
-.inner__book--tag {
+.id__book--tag {
   background-color: #f1f6f4;
   padding: 0 16px;
   height: 48px;
@@ -923,18 +923,18 @@ input {
   transition: background-color 0.2s;
 }
 
-.inner__book--book-description {
+.id__book--book-description {
   color: #032b41;
   margin-bottom: 16px;
   line-height: 1.5;
 }
 
-.inner__book--author-description {
+.id__book--author-description {
   color: #032b41;
   line-height: 1.5;
 }
 
-.inner__book--image-wrapper {
+.id__book--image-wrapper {
   width: 300px;
   height: 300px;
   min-width: 300px;
@@ -1034,6 +1034,7 @@ input {
   height: 28px;
   stroke: #fff;
   transition: all 0.2s;
+  margin-left: 4px;
 }
 
 .audio__controls--btn-play {
@@ -1185,27 +1186,34 @@ input[type="range"]::-ms-thumb {
 }
 
 .plan__header {
-  max-width: 1000px;
-  margin: 0 auto;
-  color: #fff;
-  padding: 0 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #fff;
+    padding: 0 24px;
+    height: 67vh;
 }
 
 .plan__title {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 40px;
+  color: #fff;
+  width: 100%;
+  max-width: 900px;
 }
 
-.plan__sub--title {
+.plan__subtitle {
   font-size: 20px;
+  color: #fff;
   margin-bottom: 32px;
+  font-weight: 400;
 }
 
 .plan__img--mask {
   display: flex;
   justify-content: center;
   max-width: 340px;
+  height: 340px;
   margin: 0 auto;
   border-radius: 180px 180px 0 0;
   overflow: hidden;
@@ -1848,6 +1856,16 @@ input[type="range"]::-ms-thumb {
   }
 }
 
+@media (max-width: 992px) {
+  .id__wrapper {
+   flex-direction: column-reverse;
+   align-items: center;
+  }
+  .id__book {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .landing__content {
     display: flex;
@@ -1936,6 +1954,36 @@ input[type="range"]::-ms-thumb {
 
   .remove--tablet {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .audio__wrapper {
+    height: 180px;
+    padding: 16px 24px;
+    flex-direction: column;
+  }
+  .audio__wrapper > div {
+    width: 100%;
+    justify-content: center;
+  }
+  .audio__track--image-mask {
+    max-width: 80px;
+  }
+  .plan__title {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+  .plan__subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  .plan__features {
+    width: 100%;
+  }
+  .plan__features--wrapper {
+    flex-direction: column;
+    display: flex;
   }
 }
 

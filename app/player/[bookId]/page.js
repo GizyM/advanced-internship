@@ -167,6 +167,7 @@ export default function BookPage() {
     <>
       <Search />
       <Sidebar />
+      <div className="wrapper">
       <div className="summary">
         <div className="audio__book--summary" style={{ fontSize: "16px" }}>
           <div className="audio__book--summary-title">
@@ -286,6 +287,7 @@ export default function BookPage() {
             <div className="audio__time">{formatTime(duration)}</div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Modal, Snackbar, Alert } from "@mui/material";
 import { BiX } from "react-icons/bi";
 
-import { closeLoginModal, openSignupModal } from "@/redux/modalSlice";
+import { closeLoginModal, openSignupModal, openPasswordModal } from "@/redux/modalSlice";
 
 import { signInWithEmailAndPassword, signInAnonymously } from "firebase/auth";
 
@@ -50,6 +50,13 @@ export default function LoginModal({ onLoginSuccess }) {
     }
     setError(null);
   };
+
+  function togglePasswordModal() {
+    dispatch(closeLoginModal());
+    dispatch(openPasswordModal());
+    setError(false);
+  }
+
   return (
     <>
       <Modal open={isOpen} className="modal">
@@ -84,6 +91,12 @@ export default function LoginModal({ onLoginSuccess }) {
             </form>
             <button className="btn modal__login--btn" onClick={handleSignIn}>
               <span>Login</span>
+            </button>
+            <button 
+            onClick={togglePasswordModal}
+            className="btn modal__btn--password"
+            >
+              Forgot your password?
             </button>
           </div>
 

@@ -4,7 +4,6 @@ const initialState = {
     loginModalOpen: false,
     signupModalOpen: false,
     passwordModalOpen: false,
-    openSidebar: false,
 };
 
 const modalSlice = createSlice({
@@ -37,12 +36,6 @@ const modalSlice = createSlice({
         signOut(state) {
             state.loggedIn = false;
         },
-        openSidebarModal: (state) => {
-            state.openSidebar = true;
-        },
-        closeSidebarModal: (state) => {
-            state.openSidebar = false;
-        }
     },
 });
 
@@ -53,8 +46,6 @@ export const {
     closeSignupModal,
     openPasswordModal,
     closePasswordModal,
-    openSidebarModal,
-    closeSidebarModal,
     signIn,
     signOut,
 } = modalSlice.actions;

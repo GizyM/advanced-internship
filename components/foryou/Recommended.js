@@ -19,7 +19,7 @@ export default function Recommended() {
   }, []);
   return (
     <>
-      <div className="foryou__title">Recommended For You</div>
+    <div className="foryou__title">Recommended For You</div>
       <div className="foryou__subtitle">We think you'll like these</div>
       <div className="foryou__recommended--books">
         {loading

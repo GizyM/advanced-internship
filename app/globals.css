@@ -1213,7 +1213,6 @@ input[type="range"]::-ms-thumb {
   display: flex;
   justify-content: center;
   max-width: 340px;
-  height: 340px;
   margin: 0 auto;
   border-radius: 180px 180px 0 0;
   overflow: hidden;
@@ -1848,7 +1847,69 @@ input[type="range"]::-ms-thumb {
 	color: #394547;
 }
 
+/* 
 
+BURGER MENU
+
+*/
+
+.btn__menu {
+  background-color: transparent;
+  border: none;
+  font-size: 32px;
+  text-align: center;
+  display: none;
+}
+
+.burger__menu--icon {
+  font-size: 24px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.btn__menu--close {
+  font-size: 24px;
+  color: #032b41;
+  position: absolute;
+  top: 1%;
+  right: 1%;
+}
+
+.menu__backdrop {
+  position: absolute;
+  top: 0;
+  left: 80%;
+  right: 2%;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.menu--open {
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
+.menu--open .menu__backdrop {
+  visibility: visible;
+  opacity: 1;
+  animation: slide-in 400ms 100ms backwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-200%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
 @media (max-width: 1200px) {
   .selected__book {
@@ -1955,9 +2016,21 @@ input[type="range"]::-ms-thumb {
   .remove--tablet {
     display: none;
   }
-}
-
-@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 80%;
+  }
+  .sidebar__wrapper {
+    width: 100%;
+  }
+  .wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+  .btn__menu {
+    display: block;
+    margin-left: 24px;
+  }
   .audio__wrapper {
     height: 180px;
     padding: 16px 24px;
@@ -1984,6 +2057,16 @@ input[type="range"]::-ms-thumb {
   .plan__features--wrapper {
     flex-direction: column;
     display: flex;
+  }
+  .settings__btn {
+    margin-top: 8px;
+  }
+  .selected__book {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .selected__book--subtitle {
+    width: 100%;
   }
 }
 
@@ -2071,10 +2154,10 @@ input[type="range"]::-ms-thumb {
   .remove--tablet {
     display: none;
   }
-}
-
-@media (max-width: 576px) {
   .nav__list--mobile {
     display: none;
+  }
+  .selected__book {
+    padding: 16px;
   }
 }

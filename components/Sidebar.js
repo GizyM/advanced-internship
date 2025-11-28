@@ -2,12 +2,13 @@
 
 import { auth } from "@/firebase";
 import { clearUser, setUser } from "@/redux/authSlice";
-import { openLoginModal, signIn } from "@/redux/modalSlice";
+import { openLoginModal, signIn, openSidebarModal, closeSidebarModal, openSignupModal } from "@/redux/modalSlice";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LoginModal from "./modals/LoginModal";
 import SignupModal from "./modals/SignupModal";
+import PasswordModal from "./modals/PasswordModal";
 
 export default function Sidebar() {
   const [visible, setVisible] = useState(true);
@@ -210,6 +211,7 @@ export default function Sidebar() {
       </div>
       <LoginModal />
       <SignupModal />
+      <PasswordModal />
     </>
   );
 }

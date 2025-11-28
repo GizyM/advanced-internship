@@ -47,46 +47,47 @@ const Settings = () => {
       <LoginModal />
       <SignupModal />
       <PasswordModal />
-     <div className="wrapper">
         <div className="container">
-        <div className="row">
-          {!user ? (
-            <>
-              <div className="section__title page__title">Settings</div>
+          <div className="row">
+            {!user ? (
+              <>
+                <div className="section__title page__title">Settings</div>
 
-              <div className="settings__login--wrapper">
-                <img
-                  style={{ height: "480px", width: "650px" }}
-                  src="login.png"
-                  alt="log in"
-                />
-                <h2 className="settings__login--text">
-                  Log in to your account to see your details
-                </h2>
-                <button
-                  className="btn settings__login--btn"
-                  onClick={() => openLoginModal()}
-                >
-                  Login
-                </button>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="section__title page__title">Settings</div>
-              <div className="setting__content">
-                <div className="settings__sub--title">Your Subscription plan</div>
-                <div className="settings__text">premium-plus</div>
-              </div>
-              <div className="setting__content">
-                <div className="settings__sub--title">Email</div>
-                <div className="settings__text">hanna@gmail.com</div>
-              </div>
-            </>
-          )}
+                <div className="settings__login--wrapper">
+                  <img
+                    style={{ height: "480px", width: "650px" }}
+                    src="login.png"
+                    alt="log in"
+                  />
+                  <h2 className="settings__login--text">
+                    Log in to your account to see your details
+                  </h2>
+                  <button
+                    className="btn settings__login--btn"
+                    onClick={() => openLoginModal()}
+                  >
+                    Login
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="section__title page__title">Settings</div>
+                <div className="setting__content">
+                  <div className="settings__sub--title">
+                    Your Subscription plan
+                  </div>
+                  <div className="settings__text">premium-plus</div>
+                </div>
+                <div className="setting__content">
+                  <div className="settings__sub--title">Email</div>
+                  <div className="settings__text">hanna@gmail.com</div>
+                </div>
+              </>
+            )}
+          </div>
         </div>
-      </div>
-     </div>
     </>
   );
 };
+export default Settings;

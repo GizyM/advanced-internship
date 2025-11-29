@@ -4,10 +4,9 @@ import axios from "axios";
 import SkeletonSearchLoader from "./SkeletonLoader";
 import GetAudioTime from "./GetAudioTime";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { FaTimes } from "react-icons/fa";
 import Sidebar from "@/components/Sidebar";
 
-export default function Search({ initialBooks = { Search: [] } }) {
+export default function Search({ initialBooks = { Search: [] }, onClose }) {
   const [booksData, setBooksData] = useState(initialBooks);
   const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(false);
@@ -76,14 +75,10 @@ export default function Search({ initialBooks = { Search: [] } }) {
     }
   }, [debouncedSearchTerm]);
 
-  function menuOpen() {
+  function toggleMenu() {
     document.body.classList.add("menu--open");
   }
-
-  function menuClose() {
-    document.body.classList.remove("menu--open");
-  }
-
+  
   return (
     <div className="search__background">
       <div className="search__wrapper">
@@ -202,13 +197,10 @@ export default function Search({ initialBooks = { Search: [] } }) {
             )}
           </div>
         )}
-        <button onClick={menuOpen} className="btn__menu">
+        <button onClick={toggleMenu} className="btn__menu">
         <RxHamburgerMenu className="burger__menu--icon" />
       </button>
-      <Sidebar className="menu__backdrop" onClick={menuClose}>
-        <button onClick={menuClose} className="btn__menu--close">
-          <FaTimes className="burger__menu--icon" />
-        </button>
+      <Sidebar className="menu__backdrop">
       </Sidebar>
       </div>
     </div>

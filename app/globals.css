@@ -1476,11 +1476,7 @@ input[type="range"]::-ms-thumb {
   transition: all 0.3s;
 }
 
-.sidebar {
-  transform: translateX(-100%);
-}
-
-.sidebar__visible {
+.menu--open .sidebar {
   transform: translateX(0);
 }
 
@@ -1874,6 +1870,7 @@ BURGER MENU
   position: absolute;
   top: 1%;
   right: 1%;
+  display: none;
 }
 
 .menu__backdrop {
@@ -1895,6 +1892,11 @@ BURGER MENU
   overflow-y: hidden;
 }
 
+.menu--open .sidebar__overlay--hidden {
+  opacity: 0.65;
+  pointer-events: auto;
+}
+
 .menu--open .menu__backdrop {
   visibility: visible;
   opacity: 1;
@@ -1911,9 +1913,24 @@ BURGER MENU
   }
 }
 
+@media (max-width: 1600px) {
+  .btn__menu--close {
+    display: none;
+  }
+}
+
 @media (max-width: 1200px) {
   .selected__book {
     width: 100%;
+  }
+  .btn__menu--close {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .btn__menu--close {
+    display: none;
   }
 }
 
@@ -2030,6 +2047,9 @@ BURGER MENU
   .btn__menu {
     display: block;
     margin-left: 24px;
+  }
+  .btn__menu--close {
+    display: block;
   }
   .audio__wrapper {
     height: 180px;
@@ -2159,5 +2179,8 @@ BURGER MENU
   }
   .selected__book {
     padding: 16px;
+  }
+  .btn__menu--close {
+    display: block;
   }
 }

@@ -2,13 +2,14 @@
 
 import { auth } from "@/firebase";
 import { clearUser, setUser } from "@/redux/authSlice";
-import { openLoginModal, signIn, openSidebarModal, closeSidebarModal, openSignupModal } from "@/redux/modalSlice";
+import { openLoginModal, signIn } from "@/redux/modalSlice";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LoginModal from "./modals/LoginModal";
 import SignupModal from "./modals/SignupModal";
 import PasswordModal from "./modals/PasswordModal";
+import { FaTimesCircle } from "react-icons/fa";
 
 export default function Sidebar() {
   const [visible, setVisible] = useState(true);
@@ -41,6 +42,10 @@ export default function Sidebar() {
     }
   };
 
+  function toggleMenuClose() {
+    document.body.classList.remove("menu--open");
+  }
+
   return (
     <>
       <div className="sidebar__overlay sidebar__overlay--hidden"></div>
@@ -54,6 +59,9 @@ export default function Sidebar() {
             loading="lazy"
             style={{ color: "transparent" }}
           />
+          <button onClick={toggleMenuClose} className="btn__menu--close">
+            <FaTimesCircle className="burger__menu--icon" />
+          </button>
         </div>
         <div className="sidebar__wrapper">
           <div className="sidebar__top">
@@ -204,7 +212,9 @@ export default function Sidebar() {
                 </svg>
               </div>
 
-              <div className="sidebar__link--text">{user ? "Logout" : "Login"}</div>
+              <div className="sidebar__link--text">
+                {user ? "Logout" : "Login"}
+              </div>
             </div>
           </div>
         </div>

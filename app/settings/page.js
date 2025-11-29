@@ -9,6 +9,7 @@ import { openLoginModal } from "@/redux/modalSlice";
 import { useDispatch } from "react-redux";
 import LoginModal from "@/components/modals/LoginModal";
 import SignupModal from "@/components/modals/SignupModal";
+import PasswordModal from "@/components/modals/PasswordModal";
 import { onAuthStateChanged } from "firebase/auth";
 import { clearUser } from "@/redux/authSlice";
 
